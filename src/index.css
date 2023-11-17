@@ -1,0 +1,546 @@
+body{
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #121213;
+ overflow-x: hidden;
+ width: 100%
+
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
+.row{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.row div{
+  display: block;
+  border: 1px solid #bbb;
+  margin: 4px;
+  width: 60px;
+  height: 60px;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 60px;
+  border-color:#818384;
+  font-size: 30px;
+  font-weight: bolder;
+  
+  
+
+}
+
+.row div.light
+
+.wordle--container{
+  display: flex;
+  justify-content: center;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  color: white;
+  position: relative    ;
+
+ 
+ 
+}
+
+
+
+
+
+
+.row > div.green{
+  --background-color: #538d4e;
+  --border-color: #538d4e;
+  animation: flip 0.2s ease forwards
+
+}
+
+.row >  div.yellow{
+  --background-color: #b59f3b;
+  --border-color: #b59f3b;
+  animation: flip 0.2s ease forwards
+
+}
+
+.row  > div.grey{
+  --background-color: gray;
+  --border-color: gray;
+  animation: flip 0.2s ease forwards
+}
+
+.row  div:nth-child(2){
+  animation-delay: 0.2s;
+}
+
+.row  div:nth-child(3){
+  animation-delay: 0.4s;
+}
+
+.row  div:nth-child(4){
+  animation-delay: 0.6s;
+}
+
+.row div:nth-child(5){
+  animation-delay: 0.8s;
+}
+
+
+.row.current > div.filled{
+ animation: bounce 0.2s ease-in-out;
+}
+
+.keypad {
+  max-width: 500px;
+  margin: 50px auto;
+  
+ 
+}
+
+
+.keypad > div{
+  margin: 5px;
+  width: 40px;
+  height: 50px;
+  background-color:#818384;
+  display: inline-block;
+  border-radius: 6px;
+  line-height: 50px;
+  text-align: center;
+  text-transform: capitalize;
+  color: white;
+  font-weight: bolder;
+
+
+}
+
+.keypad > div.key{
+  margin: 5px;
+  width: 40px;
+  height: 50px;
+  background-color:#818384;
+  display: inline-block;
+  border-radius: 6px;
+  line-height: 50px;
+  text-align: center;
+  text-transform: capitalize;
+  color: white;
+  font-weight: bolder;
+
+
+}
+
+
+.keypad > div.green{
+  --background-color: green;
+  --border-color: green;
+  animation: flip 0.2s ease forwards
+
+}
+
+
+.keypad >  div.yellow{
+  --background-color: yellow;
+  --border-color: yellow;
+  animation: flip 0.2s ease forwards
+
+}
+
+.keypad > div.grey{
+  --background-color: rgb(62, 58, 58);
+  --border--color: gray;
+  animation: flip 0.2s ease forwards
+}
+
+
+.modal {
+  background: rgba(255,255,255,0.7);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  color: black;
+
+}
+.modal div {
+  max-width: 480px;
+  background: #fff;
+  padding: 40px;
+  border-radius: 10px;
+  margin: 10% auto;
+  box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+  color: black;
+
+}
+.modal .solution {
+  border: 1px solid MediumSeaGreen;
+  color: #fff;
+  background-color: MediumSeaGreen;
+  font-weight: bold;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: black;
+}
+
+.my--span{
+  font-size: 20px;
+  font-family: 'Lato', sans-serif;
+  ;
+}
+.app--title{
+  font-family: 'Oswald', sans-serif;
+  font-size: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 25px;
+  width: 100%;
+  
+  
+}
+
+.faded--background{
+  position:  fixed;
+  background-color: rgba(0, 0, 0, 0.5);
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+z-index: 99 
+
+}
+
+.instructions--div{
+  background-color: #272729;
+  position: fixed;
+  top: 120px;
+  bottom: 120px;
+  left:30%;
+  right: 30%;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;  
+  font-size: 12px;
+  padding: 20px;
+}
+
+
+.instructions--div.white{
+  background-color: #272729;
+  position: fixed;
+  top: 120px;
+  bottom: 120px;
+  left:30%;
+  right: 30%;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;  
+  font-size: 12px;
+  padding: 20px;
+  color: white;
+}
+
+
+.toggle--menu{
+  background-color: #272729;
+  position: absolute;
+  top: 220px;
+  bottom: 150px;
+  left: 20px;
+ right: 300px;
+  border-radius: 10px;
+  margin-top: 20px
+}
+
+.instructions--div div img {
+  width: 300px;
+}
+
+.toggle--menu.light{
+  background-color: #bbb;
+  color: black;
+  position: absolute;
+  top: 220px;
+  bottom: 200px;
+  left: 20px;
+ right: 300px;
+  border-radius: 10px;
+
+}
+
+
+.wordle--grey{
+  background-color: #bbb;
+  color: black;
+}
+
+.nav--bar{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
+  padding: 30px;
+  margin-bottom: 40px;
+  position: relative;
+  
+}
+
+.nav--bar.light{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  padding: 30px;
+  margin-bottom: 40px;
+  position: relative;
+  background-color:#fff;
+  color: black;
+  
+}
+
+
+.enter--tag{
+  padding: 0px 10px;
+}
+.rule--header{
+  font-size: 30px
+}
+
+p{
+  font-size: larger;
+}
+
+.backspace--button{
+  padding: 0px 15px;
+  padding-right: 25px;
+  text-align: center;
+}
+
+.toggle--button{
+  padding: 20px;
+}
+
+button{
+  width: 145px;
+  margin: 5px;
+  background-color:#272729;
+  color: white;
+  font-family: 'Lato', sans-serif;
+font-family: 'Montserrat', sans-serif;
+font-weight: 700;
+border: 1px solid;
+border-color: #bbb;
+
+}
+
+.signupp--header{
+  position: relative;
+  left: 30px;
+  font-size: 17px;
+}
+
+
+input{
+  margin: 5px
+ 
+}
+
+.auth--div{
+  
+  margin: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+
+@keyframes bounce {
+  0%{
+    transform: scale(1);
+    border-color:#ddd;
+  }
+  50%{
+    transform: scale(1.2)
+  }
+  100%{
+    transform: scale(1);
+    border-color:#333;
+
+  }
+  
+}
+
+@keyframes flip {
+  0%{
+
+    transform: rotateX(0);
+    background-color: white;
+    border-color: #bbb;
+
+  }
+
+  45%{
+    transform: rotateX(90deg); transform: rotateX(0);
+    background-color: white;
+    border-color: #bbb;
+    
+
+  }
+
+  55%{
+    
+      transform: rotateX(90deg);
+      background: var(--background-color);
+      border-color: var(--border--color);
+      color: white;
+
+    
+  }
+
+  100%{
+    
+      transform: rotateX(0);
+      background: var(--background-color);
+      border-color: var(--border--color);
+      color: white;
+
+
+    
+  }
+
+
+
+ 
+
+
+}
+
+@media (max-width: 896px){
+
+  .row div{
+    display: block;
+    border: 1px solid #bbb;
+    margin: 4px;
+    width: 40px;
+    height: 50px;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 60px;
+    border-color:#818384;
+    font-size: 30px;
+    font-weight: bolder;
+    
+    
+  
+  }
+
+
+.keypad > div{
+  margin: 5px;
+  width: 30px;
+  height: 40px;
+  background-color:#818384;
+  display: inline-block;
+  border-radius: 6px;
+  line-height: 50px;
+  text-align: center;
+  text-transform: capitalize;
+  color: white;
+ 
+  
+
+
+}
+
+.keypad {
+  max-width: 320px;
+  margin: 30px ;
+  margin-right: 20px ;
+  
+ 
+}
+.enter--tag{
+  padding: 0px 60px ;
+}
+
+.keypad > div:active{
+  background-color:#272729;
+  width: 25px;
+  height: 35px;
+}
+
+.keypad--div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+.grid--div{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+}
+
+body{
+  overflow-x: hidden;
+}
+
+.app--title{
+  font-size:15px;
+  padding: 0;
+  margin: 0
+}
+  
+
+
+.app--title {
+  
+  
+  
+}
+
+.instructions--div{
+  top: 50px;
+  bottom: 50px;
+  right: 10%;
+  left: 5%;
+  overflow-y: hidden;
+  height: 100vh;
+  
+}
+
+
+
+
+ 
+}
